@@ -1,0 +1,21 @@
+page-checkin-modal {
+    #map_canvas{
+        height: 75%;
+        margin-left: -20px;
+        margin-top: -20px;
+        margin-right: -20px;
+    }
+
+    #locationOff{
+        color: #fd4c10;
+        border-color: #fd4c10;
+        border-bottom-style: solid;
+        background-color: white;
+    }
+    #endereco{
+        box-shadow: 0 -5px 10px 5px rgba(0, 0, 0, 0.2);
+        width: 400px;
+        margin-left: -20px;
+    }
+
+}
