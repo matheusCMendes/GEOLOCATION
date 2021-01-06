@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar no-border-bottom color="primary">
+    <ion-title text-center *ngIf="optionPage">{{ optionPage }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div id="map_canvas">
+  </div>
+
+  <ion-item  id="endereco" *ngIf="locations">
+    <ion-icon text-center color="gray" name="pin" item-start></ion-icon>
+    <h2>Endereço</h2>
+    <p>{{locations.thoroughfare}}, {{ locations.subThoroughfare }}</p> 
+    <p>Cidade: {{ locations.subAdministrativeArea }}   CEP: {{ locations.postalCode}}</p>  
+    <p>Pais: {{ locations.countryName }}</p>
+  </ion-item>
+
+  <ion-item *ngIf="!locations">
+    <ion-icon name="alert" item-start></ion-icon>
+    <h2>Não foi possível obter a sua localização</h2>
+  </ion-item>
+
+  <button *ngIf="!locations" text-center block round default outline ion-button id="locationOff" (click)="loadMap()">
+    Tentar Novamente
+    </button>
+
+  <button  *ngIf="!locations" text-center block round default ion-button color="primary" (click)="currentPage()">
+    Confirmar {{ optionPage }} sem localização
+    </button>
+
+  <button *ngIf="locations" text-center block round default ion-button color="primary" (click)="currentPage()">
+    Confirmar {{ optionPage }}
+    </button>
+</ion-content>
